@@ -1,0 +1,67 @@
+.auth-box {
+  @include flex(space-between, center, column);
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  width: 300px;
+  padding: 2rem;
+  font-size: 1.4rem;
+
+  label {
+    width: 100%;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    outline: none;
+    margin-bottom: 1rem;
+  }
+}
+
+.auth-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 9999rem;
+  background-color: #f75454;
+  color: #fff;
+  cursor: pointer;
+}
+.auth-facebook {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 9999rem;
+  background-color: #1a5ceb;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logout-button {
+  width: 300px;
+  padding: 1rem;
+  margin: 2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 9999rem;
+  background-color: #f75454;
+  color: #fff;
+  cursor: pointer;
+}
+.other-option {
+  font-size: 1.4rem;
+  padding-top: 1rem;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: none;
+}

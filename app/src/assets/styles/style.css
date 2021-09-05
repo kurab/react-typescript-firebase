@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 5rem;
+  margin: auto;
+}
+
+img {
+  border-radius: 2rem;
+  width: 500px;
+  margin-top: 2rem;
+}
+
+.auth-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  width: 300px;
+  padding: 2rem;
+  font-size: 1.4rem;
+}
+
+.auth-box label {
+  width: 100%;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 9999rem;
+  background-color: #f75454;
+  color: #fff;
+  cursor: pointer;
+}
+
+.auth-facebook {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 9999rem;
+  background-color: #1a5ceb;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logout-button {
+  width: 300px;
+  padding: 1rem;
+  margin: 2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 9999rem;
+  background-color: #f75454;
+  color: #fff;
+  cursor: pointer;
+}
+
+.other-option {
+  font-size: 1.4rem;
+  padding-top: 1rem;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: none;
+}
+/*# sourceMappingURL=style.css.map */
