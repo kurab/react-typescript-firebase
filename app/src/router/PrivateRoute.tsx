@@ -1,21 +1,14 @@
-import { memo, ReactNode, VFC } from "react";
-import { Redirect, Route } from "react-router-dom";
+import { memo } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 import { useLoginUser } from "../hooks/useLoginUser";
 
-type Props = {
-  exact: boolean;
-  path: string;
-  children: ReactNode;
-};
+export const PrivateRoute = memo(
+  ({ children, redirectPath = "/auth/login" }: any) => {
+    const { loginUser } = useLoginUser();
+    if (!loginUser) {
+      return <Navigate to={redirectPath} replace />;
+    }
 
-export const PrivateRoute: VFC<Props> = memo((props) => {
-  const { exact, path, children } = props;
-  const { loginUser } = useLoginUser();
-  return loginUser ? (
-    <Route exact={exact} path={path}>
-      {children}
-    </Route>
-  ) : (
-    <Redirect to="/auth/login" />
-  );
-});
+    return children ? children : <Outlet />;
+  }
+);

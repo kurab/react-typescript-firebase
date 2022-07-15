@@ -1,8 +1,8 @@
-import { VFC, memo, useState, ChangeEvent } from "react";
+import { FC, memo, useState, ChangeEvent } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 
-export const Register: VFC = memo(() => {
+export const Register: FC = memo(() => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -24,32 +24,32 @@ export const Register: VFC = memo(() => {
 
   return (
     <>
-      <div className="container">
-        <div className="auth-box">
+      <div className='container'>
+        <div className='auth-box'>
           <h1>Register</h1>
           <label>Email</label>
           <input
-            type="email"
-            placeholder="Email"
+            type='email'
+            placeholder='Email'
             value={email}
             onChange={onChangeEmail}
           />
           <label>Password</label>
           <input
-            type="password"
-            placeholder="Password"
+            type='password'
+            placeholder='Password'
             value={password}
             onChange={onChangePassword}
           />
           <label>Password (confirm)</label>
           <input
-            type="password"
-            placeholder="Password - confirm"
+            type='password'
+            placeholder='Password - confirm'
             value={passwordConfirm}
             onChange={onChangePasswordConfirm}
           />
           <button
-            className="auth-button"
+            className='auth-button'
             onClick={onClickRegister}
             disabled={
               email === "" ||
@@ -61,12 +61,12 @@ export const Register: VFC = memo(() => {
             Register
           </button>
           or
-          <button className="auth-facebook" onClick={onClickFacebookRegister}>
+          <button className='auth-facebook' onClick={onClickFacebookRegister}>
             Facebook
           </button>
         </div>
-        <div className="other-option">
-          <Link to="/auth/login">Login</Link>
+        <div className='other-option'>
+          <Link to='/auth/login'>Login</Link>
         </div>
       </div>
     </>

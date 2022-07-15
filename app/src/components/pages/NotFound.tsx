@@ -1,8 +1,8 @@
-import { VFC, memo } from "react";
+import { FC, memo } from "react";
 
-export const NotFound: VFC = memo(() => {
+export const NotFound: FC = memo(() => {
   return (
-    <div className="container">
+    <div className='container'>
       <h1>404 Not Found</h1>
     </div>
   );

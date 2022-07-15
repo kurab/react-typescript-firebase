@@ -7,9 +7,11 @@ supported Firebase login/register methods:
 - Email and Password
 - Facebook
 
-## firebase module version
+## versions
 
-9.0.1
+- react: 18.0.15
+- firebase: 9.9.0
+- react-router-dom: 6.3.0
 
 ## usage
 

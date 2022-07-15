@@ -1,21 +1,13 @@
 import { Login } from "../components/pages/auth/Login";
 import { Register } from "../components/pages/auth/Register";
-import { NotFound } from "../components/pages/NotFound";
 
 export const AuthRoutes = [
   {
-    path: "/login",
-    exact: false,
+    path: "login",
     children: <Login />,
   },
   {
-    path: "/register",
-    exact: false,
+    path: "register",
     children: <Register />,
-  },
-  {
-    path: "*",
-    exact: false,
-    children: <NotFound />,
   },
 ];

@@ -1,38 +1,27 @@
-import { memo, VFC } from "react";
-import { Route, Switch } from "react-router-dom";
+import { memo, FC } from "react";
+import { Route, Routes } from "react-router-dom";
 import { Home } from "../components/pages/Home";
+import { Auth } from "../components/pages/Auth";
 import { NotFound } from "../components/pages/NotFound";
 import { AuthRoutes } from "./AuthRouter";
 import { PrivateRoute } from "./PrivateRoute";
-import { LoginUserProvider } from "../providers/LoginUserProvider";
+import { Login } from "../components/pages/auth/Login";
 
-export const Router: VFC = memo(() => {
+export const Router: FC = memo(() => {
   return (
-    <Switch>
-      <LoginUserProvider>
-        <PrivateRoute exact={true} path="/">
-          <Home />
-        </PrivateRoute>
-        <Route
-          path="/auth"
-          render={({ match: { url } }) => (
-            <Switch>
-              {AuthRoutes.map((route) => (
-                <Route
-                  key={route.path}
-                  exact={route.exact}
-                  path={`${url}${route.path}`}
-                >
-                  {route.children}
-                </Route>
-              ))}
-            </Switch>
-          )}
-        />
-      </LoginUserProvider>
-      <Route path="*">
-        <NotFound />
+    <Routes>
+      <Route path='/' element={<PrivateRoute children={<Home />} />} />
+      <Route path='auth' element={<Auth />}>
+        <Route index element={<Login />} />
+        {AuthRoutes.map((route, key) => (
+          <Route
+            path={route.path}
+            element={route.children}
+            key={`RouteAuth${key}`}
+          />
+        ))}
       </Route>
-    </Switch>
+      <Route path='*' element={<NotFound />} />
+    </Routes>
   );
 });

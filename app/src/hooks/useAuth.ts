@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLoginUser } from "../hooks/useLoginUser";
 
 import { initializeApp } from "firebase/app";
@@ -13,7 +13,7 @@ import {
 } from "firebase/auth";
 
 export const useAuth = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { setLoginUser } = useLoginUser();
 
   const login = useCallback(
@@ -23,13 +23,13 @@ export const useAuth = () => {
           const user = userCredential.user;
           console.log(user);
           setLoginUser(user);
-          history.push("/");
+          navigate("/");
         })
         .catch((err) => {
           alert(err);
         });
     },
-    [history, setLoginUser]
+    [navigate, setLoginUser]
   );
 
   const loginWithFacebook = useCallback(() => {
@@ -39,12 +39,12 @@ export const useAuth = () => {
         const user = result.user;
         console.log(user);
         setLoginUser(user);
-        history.push("/");
+        navigate("/");
       })
       .catch((err) => {
         alert(err);
       });
-  }, [history, setLoginUser]);
+  }, [navigate, setLoginUser]);
 
   const register = useCallback(
     (email: string, password: string) => {
@@ -52,13 +52,13 @@ export const useAuth = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           setLoginUser(user);
-          history.push("/");
+          navigate("/");
         })
         .catch((err) => {
           alert(err);
         });
     },
-    [history, setLoginUser]
+    [navigate, setLoginUser]
   );
 
   const logout = useCallback(() => {
