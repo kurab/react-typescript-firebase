@@ -25,7 +25,7 @@ export const Register: FC = memo(() => {
     // get unique id from provider that isn't supported by firebase default
     const userId = "kurab";
     loginWithCustomToken(userId);
-  }
+  };
 
   return (
     <>
@@ -80,4 +80,4 @@ export const Register: FC = memo(() => {
       </div>
     </>
   );
-};);
+});
