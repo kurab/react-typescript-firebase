@@ -6,16 +6,17 @@ supported Firebase login/register methods:
 
 - Email and Password
 - Facebook
+- CustomToken
 
 ## versions
 
-- react: 18.0.15
+- react: 18.2.0
 - firebase: 9.9.0
 - react-router-dom: 6.3.0
 
 ## usage
 
-### setup Firebase Authentication and Facebook App at first.
+### setup Firebase Authentication, Facebook App and CloudFunctions at first.
 
 ref.(JP):
 
@@ -28,18 +29,33 @@ ref.(JP):
 
 ```
 $ cd app
-$ npm i
+$ yarn install
+$ cd ../cloudfunctions/functions
+$ yarn install
 ```
 
-### edit .env
+### edit app/.env
 
-setup Firebase config parameters on .env file.
+setup Firebase config parameters and CloudFunctions api_secret on app/.env file.
 copy .env.sample and fill parameters.
+
+### setup functions app
+
+download account service json from console and save it at cloudfunctions/fuctions/account
+edit cloudfinctions/functions/.env, cloudfunctions/.firebaserc
 
 ### start app
 
 ```
+$ cd app
 $ yarn start
+```
+
+### run emulator of CloudFunctions
+
+```
+$ cd cloudfunctions/functions
+$ yarn serve
 ```
 
 ### localhost to https with Docker
