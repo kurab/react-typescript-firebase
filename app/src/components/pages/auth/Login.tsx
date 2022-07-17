@@ -5,7 +5,7 @@ import { useAuth } from "../../../hooks/useAuth";
 export const Login: FC = memo(() => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, loginWithFacebook } = useAuth();
+  const { login, loginWithFacebook, loginWithCustomToken } = useAuth();
 
   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -16,6 +16,11 @@ export const Login: FC = memo(() => {
 
   const onClickLogin = () => login(email, password);
   const onClickFacebook = () => loginWithFacebook();
+  const onClickCustomToken = () => {
+    // get unique id from provider that isn't supported by firebase default
+    const userId = "kurab";
+    loginWithCustomToken(userId);
+  };
 
   return (
     <>
@@ -46,6 +51,10 @@ export const Login: FC = memo(() => {
           or
           <button className='auth-facebook' onClick={onClickFacebook}>
             Facebook
+          </button>
+          or
+          <button className='auth-facebook' onClick={onClickCustomToken}>
+            CustomToken
           </button>
         </div>
         <div className='other-option'>

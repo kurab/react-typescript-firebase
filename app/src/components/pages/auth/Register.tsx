@@ -7,7 +7,7 @@ export const Register: FC = memo(() => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
-  const { register, loginWithFacebook } = useAuth();
+  const { register, loginWithFacebook, loginWithCustomToken } = useAuth();
 
   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -21,6 +21,11 @@ export const Register: FC = memo(() => {
 
   const onClickRegister = () => register(email, password);
   const onClickFacebookRegister = () => loginWithFacebook();
+  const onClickCustomRegister = () => {
+    // get unique id from provider that isn't supported by firebase default
+    const userId = "kurab";
+    loginWithCustomToken(userId);
+  }
 
   return (
     <>
@@ -64,6 +69,10 @@ export const Register: FC = memo(() => {
           <button className='auth-facebook' onClick={onClickFacebookRegister}>
             Facebook
           </button>
+          or
+          <button className='auth-facebook' onClick={onClickCustomRegister}>
+            CustomToken
+          </button>
         </div>
         <div className='other-option'>
           <Link to='/auth/login'>Login</Link>
@@ -71,4 +80,4 @@ export const Register: FC = memo(() => {
       </div>
     </>
   );
-});
+};);
