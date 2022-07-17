@@ -7,12 +7,15 @@ export const Home: FC = memo(() => {
   const { loginUser } = useLoginUser();
 
   const onClickLogout = () => logout();
+  const providerType = loginUser!.providerData[0]?.providerId
+    ? loginUser!.providerData[0]?.providerId
+    : "CustomToken";
   return (
     <div className='container'>
       <h1>Home, Sweet Home!</h1>
       <img src='/cat.png' alt='' />
-      <p>email: {loginUser!.email}</p>
-      <p>provider type: {loginUser!.providerData[0].providerId}</p>
+      <p>uid: {loginUser!.uid}</p>
+      <p>provider type: {providerType}</p>
       <button className='logout-button' onClick={onClickLogout}>
         Logout
       </button>
